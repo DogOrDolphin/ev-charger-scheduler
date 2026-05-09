@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workplace EV Charger Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+    <header>
+        <h1>Workplace EV Charger Scheduler</h1>
+        <p>Book workplace EV charging appointments and view system status.</p>
+    </header>
+
+    <section class="card">
+        <h2>1. View Available Slots</h2>
+
+        <div class="row">
+            <label for="slotDate">Date</label>
+            <input id="slotDate" type="date" value="2026-03-12">
+            <button onclick="loadSlots()">Load Slots</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Slot ID</th>
+                <th>Charger</th>
+                <th>Location</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="slotsTable">
+            <tr>
+                <td colspan="7">Click "Load Slots" to view available charging slots.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>2. Book Appointment</h2>
+
+        <div class="row">
+            <label for="userId">User ID</label>
+            <input id="userId" type="number" value="1">
+
+            <label for="slotId">Slot ID</label>
+            <input id="slotId" type="number" placeholder="Select or enter slot id">
+
+            <button onclick="bookAppointment()">Book</button>
+        </div>
+
+        <pre id="bookingResult">Booking result will appear here.</pre>
+    </section>
+
+    <section class="card">
+        <h2>3. My Appointments</h2>
+
+        <div class="row">
+            <label for="appointmentsUserId">User ID</label>
+            <input id="appointmentsUserId" type="number" value="1">
+            <button onclick="loadAppointments()">Load Appointments</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>User ID</th>
+                <th>Slot ID</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+            </thead>
+            <tbody id="appointmentsTable">
+            <tr>
+                <td colspan="5">Click "Load Appointments" to view appointments.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>4. System Health</h2>
+        <button onclick="loadHealth()">Check Health</button>
+        <pre id="healthResult">Health status will appear here.</pre>
+    </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
